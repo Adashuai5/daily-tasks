@@ -1,5 +1,8 @@
-# Install
+# Demo
 
+![](./daily-tasks.gif)
+
+# Install
 
 ```
 # NPM
@@ -21,7 +24,3 @@ dt add <taskNama>
 # clear tasks list
 dt clear
 ```
-
-# Demo
-
-![](./daily-tasks.gif)
