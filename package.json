@@ -3,12 +3,21 @@
   "bin": {
     "dt": "cli.js"
   },
-  "files": ["*.js"],
+  "files": [
+    "*.js"
+  ],
   "version": "0.0.2",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
+    "@types/jest": "^25.1.2",
     "commander": "^4.1.1",
     "inquirer": "^7.0.4"
+  },
+  "devDependencies": {
+    "jest": "^25.1.0"
   }
 }
