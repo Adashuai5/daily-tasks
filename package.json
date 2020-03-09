@@ -6,7 +6,7 @@
   "files": [
     "*.js"
   ],
-  "version": "0.0.3",
+  "version": "0.0.5",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -15,7 +15,7 @@
   "dependencies": {
     "@types/jest": "^25.1.2",
     "commander": "^4.1.1",
-    "inquirer": "^7.0.4"
+    "inquirer": "7.0.4"
   },
   "devDependencies": {
     "jest": "^25.1.0"
