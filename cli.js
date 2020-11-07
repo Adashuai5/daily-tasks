@@ -1,17 +1,34 @@
 #!/usr/bin/env node
-const program = require("commander");
+const { Command } = require("commander");
+const program = new Command();
 const api = require("./index.js");
 const pkg = require("./package.json");
 
-program.version(pkg.version);
 program
-  .option("-d, --debug", "output extra debugging")
-  .option("-s, --small", "small pizza size")
-  .option("-p, --pizza-type <type>", "flavour of pizza");
+  .version(pkg.version)
+  .arguments("")
+  .action(() => {
+    const { argv } = process;
+    const { length } = argv;
+
+    if (length === 2) {
+      api.showAll();
+      return;
+    }
+    if (length >= 2) {
+      if (argv[2] !== "add" || argv[2] !== "clear") {
+        console.log(`error: unknown command '${argv[2]}'. See 'dt --help'.`);
+      }
+    }
+  });
 program
   .command("add")
   .description("add a task")
   .action((...args) => {
+    if (!args[1]) {
+      console.log("请输入任务名");
+      return;
+    }
     api.add(args[1].join(" ")).then(
       () => {
         console.log("添加成功");
@@ -36,7 +53,3 @@ program
   });
 
 program.parse(process.argv);
-
-if (process.argv.length === 2) {
-  void api.showAll();
-}
